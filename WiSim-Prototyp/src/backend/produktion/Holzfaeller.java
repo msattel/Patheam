@@ -1,31 +1,43 @@
 package backend.produktion;
 
 import java.time.LocalDateTime;
+import java.util.Observable;
 
 /**
  * Der Holzfäller produziert Baumstämme. Diese werden u.A. als Input für das
  * Sägewerk benötigt.
  * 
- * @author Mattes
+ * @author mmensch
  *
  */
 public class Holzfaeller extends Gebaeude {
 
 	/**
-	 * Standardkonstruktor des Holzfällers (wird durch new aufgerufen??)
+	 * Standardkonstruktor des Holzfällers
+	 * 
+	 * @param taktgeber
+	 *            Der Holzfäller wird am übergebenen Taktgeber (Observable)
+	 *            angemeldet.
 	 */
-	public Holzfaeller() {
+	public Holzfaeller(Taktgeber taktgeber) {
+		// Anmeldung am Taktgeber
+		taktgeber.addObserver(this);
 		// initialisierung der Parameter:
-		gebName ="Holzfäller";
+		gebName = "Holzfäller";
 		bestand = new long[ProdParam.NUM_DIF_GOODS];
-		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) { 
+		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) {
 			bestand[i] = 0;
 		}
 		maxKap = ProdParam.HF_MAXKAP;
 		belegteKap = 0;
 		platzBedarf = ProdParam.HF_PLATZBEDARF;
-		//TODO Zeitstempel einholen
+		// TODO Zeitstempel einholen
 		timeBuilt = LocalDateTime.now();
+	}
+
+	@Override
+	void setBestand(int GueterArt, long Anzahl) {
+		// TODO Auto-generated method stub
 	}
 
 	/**
@@ -36,12 +48,8 @@ public class Holzfaeller extends Gebaeude {
 		this.aktualisiereBelegteKap();
 	}
 
-	
-	
-	@Override
-	void setBestand(int GueterArt, long Anzahl) {
-		// TODO Auto-generated method stub
-
+	public void update(Observable o, Object arg) {
+		this.produziere();
 	}
 
 }

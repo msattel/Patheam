@@ -1,21 +1,23 @@
 package backend.produktion;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 /**
  * Die abstrakte Oberklasse für jedes konkrete Gebäude
+ * 
  * @author mmensch
  *
  */
-public abstract class Gebaeude {
-		
+public abstract class Gebaeude implements Observer {
+
 	// ******** Beginn alle Attribute *********
-	
+
 	/**
 	 * Name des Gebäudes
 	 */
-	public String gebName; 
-	
+	public String gebName;
+
 	/**
 	 * Die Menge an tatsächlich einlagernden Gütern. Der Index gibt die Art des
 	 * Rohstoffes an und der zugehörige Wert die Anzahl
@@ -32,7 +34,7 @@ public abstract class Gebaeude {
 	 * Die tatsächlich belegte Kapazität
 	 */
 	protected long belegteKap;
-	
+
 	/**
 	 * Die Menge an Platzeinheiten die von diesem Gebäude belegt wird.
 	 */
@@ -43,8 +45,9 @@ public abstract class Gebaeude {
 	 * initialisiert) wurde.
 	 */
 	protected LocalDateTime timeBuilt;
-	
-	// **** Beginn aller getter- und setter-Methoden die alle Gebäude implementieren sollen ****
+
+	// **** Beginn aller getter- und setter-Methoden die alle Gebäude
+	// implementieren sollen ****
 
 	/**
 	 * @return Liefert den aktuellen Bestand an eingelagerten Gütern in Form
@@ -63,14 +66,15 @@ public abstract class Gebaeude {
 	public long getMaxKap() {
 		return maxKap;
 	}
-		
+
 	/**
-	 * Die tatsächlich belegte Kapazität (Gesamtsumme der im Gebäude gelagerten Güter) wird geliefert
+	 * Die tatsächlich belegte Kapazität (Gesamtsumme der im Gebäude gelagerten
+	 * Güter) wird geliefert
 	 */
-	public long getBelegteKap(){
+	public long getBelegteKap() {
 		return belegteKap;
 	}
-	
+
 	/**
 	 * Ein gebäude hat einen bestimmten Platzbedarf beim Bau, der im Land belegt
 	 * wird.
@@ -99,43 +103,39 @@ public abstract class Gebaeude {
 	 * @param Anzahl
 	 *            Neue Anzahl (zweiter Wert in Tabelle)
 	 */
-	
-	public void setBestand(long[] neuesBestandArray){
+
+	public void setBestand(long[] neuesBestandArray) {
 		bestand = neuesBestandArray;
 	}
-	
+
 	abstract void setBestand(int GueterArt, long Anzahl);
 
 	// ***** Beginn aller sonstigen Methoden die jedes Gebäude haben soll *****
-	
+
 	/**
 	 * Die Produktion des Gebäudes wird hier implementiert. Kein Rückgabewert.
 	 * Wirkt sich auf den Bestand aus.
 	 */
 	public abstract void produziere();
-	
-	protected void aktualisiereBelegteKap (){
+
+	protected void aktualisiereBelegteKap() {
 		belegteKap = 0;
 		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) {
-			belegteKap = belegteKap+bestand[i];
+			belegteKap = belegteKap + bestand[i];
 		}
 	}
-	
-	public String toString(){
-		String result = "*** Begin "+gebName+" (Hashcode: "+this.getClass().hashCode()+") ***\n";		
-		result = result+(" max.Kapazitaet: "+maxKap+
-				"\n belegte Kapazitaet: "+belegteKap+
-				"\n Platzbedarf: "+platzBedarf+
-				"\n Erbaut: "+timeBuilt+
-				"\n lokal gelagert: ");
-		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) { 
-			result=result+(" "+ProdParam.getGoodName(i)+": "+bestand[i]+", ");
+
+	public String toString() {
+		String result = "  *** Begin " + gebName + " (Hashcode: " + this.getClass().hashCode() + ") ***\n";
+		result = result + ("    --> max.Kapazitaet: " + maxKap + "\n    --> belegte Kapazitaet: " + belegteKap
+				+ "\n    --> Platzbedarf: " + platzBedarf + "\n    --> Erbaut: " + timeBuilt
+				+ "\n    --> lokal gelagert: ");
+		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) {
+			result = result + (" " + ProdParam.getGoodName(i) + ": " + bestand[i] + ", ");
 		}
-		result = result + "\n*** End "+gebName+" (Hashcode: "+this.getClass().hashCode()+") ***\n";
-		
+		result = result + "\n  *** End " + gebName + " (Hashcode: " + this.getClass().hashCode() + ") ***\n";
+
 		return result;
 	}
-	
 
-	
 }
