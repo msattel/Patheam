@@ -36,8 +36,9 @@ public class Holzfaeller extends Gebaeude {
 	 */
 	public void produziere() {
 		counter++;
-		//TODO Modulo Operator um nur beim x-ten mal zu produzieren
-		lager.erhoeheRohstoffwert(ProdParam.HOLZ, 1);
+		if (counter % ProdParam.HF_DELAY == 0) {
+			lager.erhoeheRohstoffwert(ProdParam.HOLZ, 1);
+		}
 	}
 
 	public void update(Observable o, Object arg) {

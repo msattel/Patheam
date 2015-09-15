@@ -41,13 +41,16 @@ public class ProdParam {
 	// Werte des Holzfällers (HF):
 	static String HF_NAME = "Holzfäller";
 	static int HF_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
+	static int HF_DELAY = 1; // Nur bei jedem (DELAY-ten)-mal des Taktes wird produziert
 
 	// Werte des Steinmetz (SM):
 	static String SM_NAME = "Steinmetz";
 	static int SM_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
+	static int SM_DELAY = 3; // Nur bei jedem (DELAY-ten)-mal des Taktes wird produziert
 	
 	// Werte des Sägewerks (SW):
 	static String SW_NAME = "Sägewerk";
 	static int SW_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
+	static int SW_DELAY = 3; // Nur bei jedem (DELAY-ten)-mal des Taktes wird produziert
 
 }

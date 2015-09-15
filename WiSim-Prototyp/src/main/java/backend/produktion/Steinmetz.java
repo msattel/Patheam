@@ -4,7 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 /**
- * Der Steinmetz produziert Steine. Diese werden u.A. als Ressource für Gebäudebau benötigt
+ * Der Steinmetz produziert Steine. Diese werden u.A. als Ressource für
+ * Gebäudebau benötigt
  * 
  * @author mmensch
  *
@@ -35,9 +36,11 @@ public class Steinmetz extends Gebaeude {
 	 */
 	public void produziere() {
 		counter++;
-		//TODO Modulo Operator um nur beim x-ten mal zu produzieren
+		// TODO Modulo Operator um nur beim x-ten mal zu produzieren
 		// TODO erhöhe Stein im Zentrallager (evtl bool für Überproduktion?)
-		lager.erhoeheRohstoffwert(ProdParam.STEIN, 1);
+		if (counter % ProdParam.SM_DELAY == 0) {
+			lager.erhoeheRohstoffwert(ProdParam.STEIN, 1);
+		}
 	}
 
 	public void update(Observable o, Object arg) {
