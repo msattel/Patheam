@@ -39,11 +39,15 @@ public class ProdParam {
 	// **** WERTE DER GEBÄUDE ****
 
 	// Werte des Holzfällers (HF):
-	static long HF_MAXKAP = 500; // maximale Kapazität
+	static String HF_NAME = "Holzfäller";
 	static int HF_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
 
 	// Werte des Steinmetz (SM):
-	static long SM_MAXKAP = 750; // maximale Kapazität
+	static String SM_NAME = "Steinmetz";
 	static int SM_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
+	
+	// Werte des Sägewerks (SW):
+	static String SW_NAME = "Sägewerk";
+	static int SW_PLATZBEDARF = 1; // Platzbedarf des Gebäudes zum Bau
 
 }

@@ -4,8 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 /**
- * Der Steinmetz produziert Steine. Diese werden u.A. als Ressource zum Bau
- * größerer Gebäude benötigt.
+ * Der Steinmetz produziert Steine. Diese werden u.A. als Ressource für Gebäudebau benötigt
  * 
  * @author mmensch
  *
@@ -19,38 +18,25 @@ public class Steinmetz extends Gebaeude {
 	 *            Der Steinmetz wird am übergebenen Taktgeber (Observable)
 	 *            angemeldet.
 	 */
-	public Steinmetz(Taktgeber taktgeber) {
+	public Steinmetz(Taktgeber taktgeber, Zentrallager lager) {
 		// Anmeldung am Taktgeber
 		taktgeber.addObserver(this);
 		// initialisierung der Parameter:
-		gebName = "Steinmetz";
-		bestand = new long[ProdParam.NUM_DIF_GOODS];
-		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) {
-			bestand[i] = 0;
-		}
-		maxKap = ProdParam.SM_MAXKAP;
-		belegteKap = 0;
+		gebName = ProdParam.SM_NAME;
 		platzBedarf = ProdParam.SM_PLATZBEDARF;
-		// TODO Zeitstempel einholen
+		// Zeitstempel einholen:
 		timeBuilt = LocalDateTime.now();
-	}
-
-	@Override
-	void setBestand(int GueterArt, long Anzahl) {
-		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * Die Produktion des Steinmetz wird hier angestossen.
 	 */
 	public void produziere() {
-		bestand[ProdParam.STEIN]++;
-		this.aktualisiereBelegteKap();
+		// TODO erhöhe Stein im Zentrallager (evtl bool für Überproduktion?)
 	}
 
 	public void update(Observable o, Object arg) {
 		this.produziere();
-
 	}
 
 }

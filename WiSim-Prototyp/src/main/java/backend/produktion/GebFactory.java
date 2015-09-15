@@ -22,11 +22,11 @@ public class GebFactory {
 	 * @return Die Instanz des erzeugten Gebäudes wird zurück gegeben.<br>
 	 *         Ohne korrekten Paramater wird 'null' zurückgeliefert.
 	 */
-	public static Gebaeude getGebaeude(String gebaeudeArt, Taktgeber taktgeber) {
+	public static Gebaeude getGebaeude(String gebaeudeArt, Taktgeber taktgeber, Zentrallager lager) {
 		if (gebaeudeArt.equalsIgnoreCase("hf"))
-			return new Holzfaeller(taktgeber);
+			return new Holzfaeller(taktgeber, lager);
 		else if (gebaeudeArt.equalsIgnoreCase("sm"))
-			return new Steinmetz(taktgeber);
+			return new Steinmetz(taktgeber, lager);
 
 		return null;
 	}
