@@ -1,4 +1,4 @@
-package backend.produktion;
+package main.java.backend.produktion;
 
 /**
  * Sammlung von Produktionsparametern in Form von Konstanten

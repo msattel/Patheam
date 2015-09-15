@@ -1,6 +1,6 @@
-package frontend;
+package main.java.frontend;
 
-import backend.produktion.*;
+import main.java.backend.produktion.*;
 
 public class WiSimFrontend {
 

@@ -1,4 +1,4 @@
-package backend.produktion;
+package main.java.backend.produktion;
 
 /**
  * Factory Klasse zur Produktion von Gebäude Instanzen

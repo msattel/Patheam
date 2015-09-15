@@ -1,4 +1,4 @@
-package backend.produktion;
+package main.java.backend.produktion;
 
 import java.time.LocalDateTime;
 import java.util.Observable;
