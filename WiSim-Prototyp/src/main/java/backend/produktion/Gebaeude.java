@@ -23,6 +23,8 @@ public abstract class Gebaeude implements Observer {
 	 */
 	protected int platzBedarf;
 
+	public Zentrallager lager;
+	
 	/**
 	 * Hier wird der Zeitpunkt gespeichert zu dem das Gebäude erbaut (das Objekt
 	 * initialisiert) wurde.

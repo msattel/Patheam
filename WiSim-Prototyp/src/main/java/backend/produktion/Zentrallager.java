@@ -36,7 +36,7 @@ public class Zentrallager {
 	 * @param i Index für den Rohstoff gem ProdParam
 	 * @param x Wert um den der Rohstoff erhöht wird
 	 */
-	public boolean erhöheRohstoffwert(int i, int x){
+	public boolean erhoeheRohstoffwert(int i, int x){
 		//TODO Fallunterscheidung ob Rohstoffkapazität erreicht einführen
 		bestand[i]=bestand[i]+x;
 		return true;

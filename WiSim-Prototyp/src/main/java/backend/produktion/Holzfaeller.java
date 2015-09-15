@@ -25,6 +25,7 @@ public class Holzfaeller extends Gebaeude {
 		// initialisierung der Parameter:
 		gebName = ProdParam.HF_NAME;
 		platzBedarf = ProdParam.HF_PLATZBEDARF;
+		this.lager = lager;
 		// Zeitstempel einholen:
 		timeBuilt = LocalDateTime.now();
 	}
@@ -33,7 +34,7 @@ public class Holzfaeller extends Gebaeude {
 	 * Die Produktion des Holzfällers wird hier angestossen.
 	 */
 	public void produziere() {
-		
+		lager.erhoeheRohstoffwert(ProdParam.HOLZ, 1);
 	}
 
 	public void update(Observable o, Object arg) {

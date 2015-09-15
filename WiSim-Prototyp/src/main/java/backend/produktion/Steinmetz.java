@@ -24,6 +24,7 @@ public class Steinmetz extends Gebaeude {
 		// initialisierung der Parameter:
 		gebName = ProdParam.SM_NAME;
 		platzBedarf = ProdParam.SM_PLATZBEDARF;
+		this.lager = lager;
 		// Zeitstempel einholen:
 		timeBuilt = LocalDateTime.now();
 	}
@@ -33,6 +34,7 @@ public class Steinmetz extends Gebaeude {
 	 */
 	public void produziere() {
 		// TODO erhöhe Stein im Zentrallager (evtl bool für Überproduktion?)
+		lager.erhoeheRohstoffwert(ProdParam.STEIN, 1);
 	}
 
 	public void update(Observable o, Object arg) {

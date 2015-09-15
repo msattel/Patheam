@@ -8,7 +8,7 @@ public class WiSimFrontend {
 
 		// Taktgeber erzeugen:
 		Taktgeber myTakt = new Taktgeber();
-		// Zentrallager anlegen
+		// Zentrallager anlegen:
 		Zentrallager myLager = new Zentrallager();
 
 		// Ein Gebäude vom Typ Steinmetz bauen:

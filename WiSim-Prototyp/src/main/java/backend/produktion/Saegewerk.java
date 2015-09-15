@@ -23,6 +23,7 @@ public class Saegewerk extends Gebaeude {
 		// initialisierung der Parameter:
 		gebName = ProdParam.SW_NAME;
 		platzBedarf = ProdParam.SW_PLATZBEDARF;
+		this.lager = lager;
 		// Zeitstempel einholen:
 		timeBuilt = LocalDateTime.now();
 	}
