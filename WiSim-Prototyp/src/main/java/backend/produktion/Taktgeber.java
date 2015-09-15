@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class Taktgeber extends Observable {
 
-	public void befehleProduktion() {
+	public void sendeTaktsignal() {
 		setChanged(); // Eine Änderung ist aufgetreten. Markiert den Taktgeber
 						// als Sendebereit
 		notifyObservers(); // Informiere Observer über Änderung

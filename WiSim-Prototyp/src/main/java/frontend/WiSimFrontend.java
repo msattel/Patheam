@@ -8,14 +8,16 @@ public class WiSimFrontend {
 
 		// Taktgeber erzeugen:
 		Taktgeber myTakt = new Taktgeber();
+		// Zentrallager anlegen
+		Zentrallager myLager = new Zentrallager();
 
 		// Ein Gebäude vom Typ Steinmetz bauen:
-		Gebaeude mySteinmetz = GebFactory.getGebaeude("sm", myTakt);
+		Gebaeude mySteinmetz = GebFactory.getGebaeude("sm", myTakt, myLager);
 		System.out.println("Steinmetz gebaut, guckst du hier:\n");
 		System.out.println(mySteinmetz.toString());
 
 		// Ein Gebäude vom Typ Holzfäller bauen:
-		Gebaeude myHolzfaeller = GebFactory.getGebaeude("hf", myTakt);
+		Gebaeude myHolzfaeller = GebFactory.getGebaeude("hf", myTakt, myLager);
 		System.out.println("Holzfaeller gebaut, guckst du hier:\n");
 		System.out.println(myHolzfaeller.toString());
 
@@ -23,10 +25,11 @@ public class WiSimFrontend {
 		System.out.println("Anzahl am Taktgeber angemeldete Gebäude: " + myTakt.countObservers() + "\n");
 
 		for (int i = 0; i < 99; i++) {
-			myTakt.befehleProduktion();
+			myTakt.sendeTaktsignal();
 		}
-
-		System.out.println(myHolzfaeller.toString());
+		
+		//aktueller Lagerbestand:
+		System.out.println(myLager.toString());
 
 		// for (int i=0; i<99; i++){
 		// myHolzfaeller.produziere();
