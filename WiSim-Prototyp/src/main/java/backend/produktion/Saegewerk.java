@@ -23,6 +23,7 @@ public class Saegewerk extends Gebaeude {
 		// initialisierung der Parameter:
 		gebName = ProdParam.SW_NAME;
 		platzBedarf = ProdParam.SW_PLATZBEDARF;
+		counter = 0;
 		this.lager = lager;
 		// Zeitstempel einholen:
 		timeBuilt = LocalDateTime.now();
@@ -32,6 +33,10 @@ public class Saegewerk extends Gebaeude {
 	 * Die Produktion des Saegewerk wird hier angestossen.
 	 */
 	public void produziere() {
+		counter++;
+		//TODO Modulo Operator um nur beim x-ten mal zu produzieren
+		
+		
 		// TODO erhöhe Bretter im Zentrallager (evtl bool für Überproduktion?)
 		// nur dann wenn ausreichend Stämme verfügbar!!!!
 	}

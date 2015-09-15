@@ -22,6 +22,7 @@ public class Steinmetz extends Gebaeude {
 		// Anmeldung am Taktgeber
 		taktgeber.addObserver(this);
 		// initialisierung der Parameter:
+		counter = 0;
 		gebName = ProdParam.SM_NAME;
 		platzBedarf = ProdParam.SM_PLATZBEDARF;
 		this.lager = lager;
@@ -33,6 +34,8 @@ public class Steinmetz extends Gebaeude {
 	 * Die Produktion des Steinmetz wird hier angestossen.
 	 */
 	public void produziere() {
+		counter++;
+		//TODO Modulo Operator um nur beim x-ten mal zu produzieren
 		// TODO erhöhe Stein im Zentrallager (evtl bool für Überproduktion?)
 		lager.erhoeheRohstoffwert(ProdParam.STEIN, 1);
 	}

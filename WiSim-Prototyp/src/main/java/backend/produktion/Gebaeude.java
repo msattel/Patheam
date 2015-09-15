@@ -24,12 +24,18 @@ public abstract class Gebaeude implements Observer {
 	protected int platzBedarf;
 
 	public Zentrallager lager;
-	
+
 	/**
 	 * Hier wird der Zeitpunkt gespeichert zu dem das Gebäude erbaut (das Objekt
 	 * initialisiert) wurde.
 	 */
 	protected LocalDateTime timeBuilt;
+
+	/**
+	 * Jedes Gebäude hat einen internen Counter der immer dann inkrementiert
+	 * wird wenn die Produktion aufgerufen wird
+	 */
+	protected long counter;
 
 	// **** Beginn aller getter- und setter-Methoden die alle Gebäude
 	// implementieren sollen ****

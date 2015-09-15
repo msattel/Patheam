@@ -23,6 +23,7 @@ public class Holzfaeller extends Gebaeude {
 		// Anmeldung am Taktgeber
 		taktgeber.addObserver(this);
 		// initialisierung der Parameter:
+		counter = 0;
 		gebName = ProdParam.HF_NAME;
 		platzBedarf = ProdParam.HF_PLATZBEDARF;
 		this.lager = lager;
@@ -34,6 +35,8 @@ public class Holzfaeller extends Gebaeude {
 	 * Die Produktion des Holzfällers wird hier angestossen.
 	 */
 	public void produziere() {
+		counter++;
+		//TODO Modulo Operator um nur beim x-ten mal zu produzieren
 		lager.erhoeheRohstoffwert(ProdParam.HOLZ, 1);
 	}
 
