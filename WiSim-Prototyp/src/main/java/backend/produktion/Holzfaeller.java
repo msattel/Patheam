@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 /**
- * Der Holzf‰ller produziert Baumst‰mme. Diese werden u.A. als Input f¸r das
- * S‰gewerk benˆtigt.
+ * Der Holzf√§ller produziert Baumst√§mme. Diese werden u.A. als Input f√ºr das
+ * S√§gewerk ben√∂tigt.
  * 
  * @author mmensch
  *
@@ -13,10 +13,10 @@ import java.util.Observable;
 public class Holzfaeller extends Gebaeude {
 
 	/**
-	 * Standardkonstruktor des Holzf‰llers
+	 * Standardkonstruktor des Holzf√§llers
 	 * 
 	 * @param taktgeber
-	 *            Der Holzf‰ller wird am ¸bergebenen Taktgeber (Observable)
+	 *            Der Holzf√§ller wird am √ºbergebenen Taktgeber (Observable)
 	 *            angemeldet.
 	 */
 	public Holzfaeller(Taktgeber taktgeber, Zentrallager lager) {
@@ -32,7 +32,7 @@ public class Holzfaeller extends Gebaeude {
 	}
 
 	/**
-	 * Die Produktion des Holzf‰llers wird hier angestossen.
+	 * Die Produktion des Holzf√§llers wird hier angestossen.
 	 */
 	public void produziere() {
 		counter++;

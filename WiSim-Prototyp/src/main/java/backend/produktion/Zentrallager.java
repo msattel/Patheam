@@ -42,13 +42,13 @@ public class Zentrallager {
 		return true;
 	}
 
-	public String toString() {
+	public void printLager() {
 		String result = "  *** Begin LAGERBESTAND (Zentrallager) ***\n      ";
 		for (int i = 0; i < ProdParam.NUM_DIF_GOODS; i++) {
 			result = result +ProdParam.getGoodName(i)+": "+bestand[i]+", ";
 		}
 		result = result + "\n  *** End LAGERBESTAND (Zentrallager) ***\n";
-		return result;
+		System.out.println(result);
 	}
 
 }

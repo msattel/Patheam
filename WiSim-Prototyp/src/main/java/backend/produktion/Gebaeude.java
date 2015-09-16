@@ -57,11 +57,11 @@ public abstract class Gebaeude implements Observer {
 	 */
 	public abstract void produziere();
 
-	public String toString() {
+	public void printGebaeude() {
 		String result = "  *** Begin " + gebName + " (Hashcode: " + this.getClass().hashCode() + ") ***";
 		result = result + "\n    --> Platzbedarf: " + platzBedarf + "\n    --> Erbaut: " + timeBuilt;
 		result = result + "\n  *** End " + gebName + " (Hashcode: " + this.getClass().hashCode() + ") ***\n";
-		return result;
+		System.out.println(result);
 	}
 
 }
