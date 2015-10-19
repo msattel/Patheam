@@ -3,3 +3,10 @@ apply plugin: 'java'
 task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
+
+jar {
+    manifest {
+    	     attributes("Main-Class": "main.java.frontend.WiSimFrontend",
+	     		"Implementation-Version": "0.1")
+	     }
+}
